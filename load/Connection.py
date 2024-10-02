@@ -1,8 +1,9 @@
 import pymysql
+import logging
 
 def connection():
     try:
-        connection_db = pymysql.connect(host="localhost", user="root", passwd='', database="GoogleCloud")
+        connection_db = pymysql.connect(host="localhost", user="root", passwd='', database="Bioinformatica")
         cursor = connection_db.cursor()
         return connection_db, cursor
     except Exception as error:
