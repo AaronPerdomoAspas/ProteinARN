@@ -1,13 +1,17 @@
+import json
+
 from Bio import Entrez
 from typing import Optional
 import os
 
+
 class SingleFastaDownloader:
-    def __init__(self, db: str, rettype: str, retmode: str, download_directory: str):
-        self.db = db
-        self.rettype = rettype
-        self.retmode = retmode
-        self.download_directory = download_directory
+    def __init__(self, download: json):
+        self.db = download["db"]
+        self.rettype = download["rettype"]
+        self.retmode = download["retmode"]
+        self.download_directory = download["download_directory"]
+        # Crear el directorio si no existe
         if not os.path.exists(self.download_directory):
             os.makedirs(self.download_directory)
 

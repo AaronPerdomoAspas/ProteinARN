@@ -8,4 +8,4 @@ class NCBIConnection:
 
     def connect(self) -> None:
         """Simula la conexión al API para asegurar que se configure correctamente."""
-        print(f"Conexión a la API de NCBI establecida con el email: {self.email}")
+        print(f"Conexión a la API de NCBI establecida con el email: {self.email} \n")
