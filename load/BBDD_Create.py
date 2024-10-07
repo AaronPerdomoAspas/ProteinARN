@@ -1,5 +1,5 @@
 import logging
-from Connection import connection
+
 
 def crear_tablas(connection_db, cursor):
     """
