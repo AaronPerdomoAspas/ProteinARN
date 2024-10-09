@@ -1,4 +1,4 @@
-# BIO Práctica Aula
+# Transformación y conexión con la base de datos:
 
 Este proyecto es una práctica orientada a la gestión de bases de datos y la transformación de datos en un entorno académico. Está diseñado para ayudar a los estudiantes a comprender cómo interactuar con bases de datos mediante Python, automatizando tareas comunes como la creación, conexión, manipulación y transformación de datos. El proyecto se centra en la construcción de scripts modulares que permiten llevar a cabo estas operaciones de forma eficiente.
 
@@ -6,10 +6,6 @@ Este proyecto es una práctica orientada a la gestión de bases de datos y la tr
 
 - [Estructura del Proyecto](#estructura-del-proyecto)
   - [Requisitos Previos](#requisitos-previos)
-  - [Pasos de Instalación](#pasos-de-instalación)
-- [Uso](#uso)
-  - [Conexión a la Base de Datos](#conexión-a-la-base-de-datos)
-  - [Ejecución del Proyecto](#ejecución-del-proyecto)
 - [Descripción Detallada de los Módulos](#descripción-detallada-de-los-módulos)
   - [load/](#load)
   - [Transform/](#transform)
