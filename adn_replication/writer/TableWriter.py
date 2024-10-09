@@ -1,4 +1,4 @@
-from adn_replication.writer.dataframe_writer import DataFrameWriter
+from adn_replication.writer.DataframeWriter import DataFrameWriter
 
 
 class TableWriter:

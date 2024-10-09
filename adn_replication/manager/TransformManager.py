@@ -1,5 +1,5 @@
-from adn_replication.transformer.codon_transformer import CodonTransformer
-from adn_replication.transformer.protein_transformer import ProteinTransformer
+from adn_replication.transformer.CodonTransformer import CodonTransformer
+from adn_replication.transformer.ProteinTransformer import ProteinTransformer
 
 class TransformManager:
     @staticmethod

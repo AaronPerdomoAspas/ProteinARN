@@ -1,8 +1,8 @@
-from manager.file_manager import FileManager
-from manager.replication_manager import ReplicationManager
-from manager.transform_manager import TransformManager
-from manager.visualization_manager import VisualizationManager
-from writer.table_writer import TableWriter
+from manager.FileManager import FileManager
+from manager.ReplicationManager import ReplicationManager
+from manager.TransformManager import TransformManager
+from manager.VisualizationManager import VisualizationManager
+from writer.TableWriter import TableWriter
 from pathlib import Path
 
 

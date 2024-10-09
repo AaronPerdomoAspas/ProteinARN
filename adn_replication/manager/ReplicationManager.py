@@ -1,7 +1,7 @@
-from adn_replication.reader.fasta_reader import FastaReader
-from adn_replication.replicator.conservative_replicator import ConservativeReplicator
-from adn_replication.replicator.dispersive_replicator import DispersiveReplicator
-from adn_replication.replicator.semiconservative_replicator import SemiconservativeReplicator
+from adn_replication.reader.FastaReader import FastaReader
+from adn_replication.replicator.ConservativeReplicator import ConservativeReplicator
+from adn_replication.replicator.DispersiveReplicator import DispersiveReplicator
+from adn_replication.replicator.SemiconservativeReplicator import SemiconservativeReplicator
 
 
 class ReplicationManager:
