@@ -1,6 +1,8 @@
 
 # NCBI FASTA Downloader
 
+[![My Skills](https://skillicons.dev/icons?i=py,pycharm,git)](https://skillicons.dev)
+
 ## Descripción
 
 Este proyecto implementa un sistema para descargar archivos FASTA desde la base de datos NCBI utilizando el API de Entrez. El sistema permite especificar identificadores de secuencias directamente o buscar identificadores basados en un término de búsqueda, descargando las secuencias correspondientes en formato FASTA. Posteriormente, los archivos descargados son validados para asegurar su formato correcto, que no estén vacíos y que las secuencias sean válidas. 
