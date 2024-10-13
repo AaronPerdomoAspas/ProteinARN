@@ -1,17 +1,15 @@
-import random
-
 class DispersiveReplicator:
-    @staticmethod
-    def replicate(adn):
+    def __init__(self, adn_original):
+        self.adn_original = adn_original
+
+    def replicate(self):
         """
-        Simula el proceso de replicación del ADN siguiendo el modelo dispersivo.
-        Cada fragmento puede provenir de la hebra original o de la hebra replicada, de forma aleatoria.
+        Simula la replicación dispersiva del ADN, en la cual se obtiene una
+        molécula de ADN con fragmentos de la cadena original y fragmentos de la cadena nueva.
         """
-        adn_replicado = ""
-        for base in adn:
-            # Mezclamos fragmentos de la hebra original y replicada
-            if random.choice([True, False]):
-                adn_replicado += base
-            else:
-                adn_replicado += base.lower()  # Indicamos los fragmentos replicados como minúsculas para diferenciarlos
-        return adn_replicado.upper()  # Convertimos todo a mayúsculas para estandarizar después
+        # En la replicación dispersiva, las cadenas se mezclan en fragmentos.
+        adn_replicated = ''.join(
+            self.adn_original[i] if i % 2 == 0 else 'N'  # 'N' simula un fragmento nuevo
+            for i in range(len(self.adn_original))
+        )
+        return adn_replicated

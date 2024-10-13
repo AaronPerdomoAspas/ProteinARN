@@ -1,4 +1,4 @@
-from adn_replication.reader.FastaReader import FastaReader
+from adn_replication.manager.FileManager import FileManager
 from adn_replication.replicator.ConservativeReplicator import ConservativeReplicator
 from adn_replication.replicator.DispersiveReplicator import DispersiveReplicator
 from adn_replication.replicator.SemiconservativeReplicator import SemiconservativeReplicator
@@ -6,21 +6,20 @@ from adn_replication.replicator.SemiconservativeReplicator import Semiconservati
 
 class ReplicationManager:
     @staticmethod
-    def perform_replication(fasta_file):
-        adn_original = FastaReader.read(fasta_file)
+    def perform_all_replications(fasta_file):
+        # Leer la secuencia original desde el archivo FASTA
+        adn_original = FileManager.read_fasta(fasta_file)
 
-        # Seleccionar el tipo de replicación a realizar
-        print("Seleccione el modelo de replicación:")
-        print("1. Conservativa")
-        print("2. Semiconservativa")
-        print("3. Dispersiva")
-        opcion = input("Ingrese el número de la opción deseada: ")
+        # Ejecutar replicación conservativa
+        conservativa_replicator = ConservativeReplicator(adn_original)
+        adn_conservativa = conservativa_replicator.replicate()
 
-        if opcion == "1":
-            return ConservativeReplicator.replicate(adn_original), adn_original
-        elif opcion == "2":
-            return SemiconservativeReplicator.replicate(adn_original), adn_original
-        elif opcion == "3":
-            return DispersiveReplicator.replicate(adn_original), adn_original
-        else:
-            raise ValueError("Opción no válida. Saliendo del programa.")
+        # Ejecutar replicación semiconservativa
+        semiconservativa_replicator = SemiconservativeReplicator(adn_original)
+        adn_semiconservativa = semiconservativa_replicator.replicate()
+
+        # Ejecutar replicación dispersiva
+        dispersiva_replicator = DispersiveReplicator(adn_original)
+        adn_dispersiva = dispersiva_replicator.replicate()
+
+        return adn_original, adn_conservativa, adn_semiconservativa, adn_dispersiva

@@ -18,17 +18,21 @@ def main():
         print(f"Procesando el archivo FASTA: {fasta_file}")
 
         try:
-            # Realizar la replicación del ADN
-            adn_replicado, adn_original = ReplicationManager.perform_replication(fasta_file)
+            # Realizar las tres replicaciones del ADN
+            adn_original, adn_conservativa, adn_semiconservativa, adn_dispersiva = ReplicationManager.perform_all_replications(
+                fasta_file)
 
-            # Transformar el ADN replicado en codones y proteínas
-            codones, proteinas = TransformManager.transform_adn(adn_replicado)
+            # Transformar el ADN replicado en codones y proteínas (usando la replicación conservativa como ejemplo)
+            codones, proteinas = TransformManager.transform_adn(adn_conservativa)
 
             # Crear e imprimir las tablas en dataframes
-            TableWriter.create_and_print_tables(adn_original, adn_replicado, codones, proteinas)
+            TableWriter.create_and_print_tables(adn_original, adn_conservativa, adn_semiconservativa, adn_dispersiva,
+                                                codones, proteinas)
 
             # Representación gráfica del proceso de replicación en 3D
-            VisualizationManager.representar_proceso_3d(adn_original, adn_replicado)
+            VisualizationManager.representar_proceso_3d(adn_original, adn_conservativa)
+            VisualizationManager.representar_proceso_3d(adn_original, adn_semiconservativa)
+            VisualizationManager.representar_proceso_3d(adn_original, adn_dispersiva)
 
         except ValueError as e:
             print(e)
