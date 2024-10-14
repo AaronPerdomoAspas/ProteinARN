@@ -2,7 +2,7 @@ from manager.FileManager import FileManager
 from manager.ReplicationManager import ReplicationManager
 from manager.TransformManager import TransformManager
 from manager.VisualizationManager import VisualizationManager
-from writer.TableWriter import TableWriter
+from writer.DataframeWriter import *
 from pathlib import Path
 
 
@@ -22,20 +22,29 @@ def main():
             adn_original, adn_conservativa, adn_semiconservativa, adn_dispersiva = ReplicationManager.perform_all_replications(
                 fasta_file)
 
-            # Transformar el ADN replicado en codones y proteínas (usando la replicación conservativa como ejemplo)
+            # Transformar el ADN replicado en codones y proteínas usando la replicación conservativa como base
             codones, proteinas = TransformManager.transform_adn(adn_conservativa)
 
-            # Crear e imprimir las tablas en dataframes
-            TableWriter.create_and_print_tables(adn_original, adn_conservativa, adn_semiconservativa, adn_dispersiva,
-                                                codones, proteinas)
+            # Crear los dataframes de cada tabla
+            df_organismos = DataFrameWriter.create_organisms_table()
+            df_arnm_conservativa = DataFrameWriter.create_arnm_table(adn_conservativa, 'conservativa')
+            df_arnm_semiconservativa = DataFrameWriter.create_arnm_table(adn_semiconservativa, 'semiconservativa')
+            df_arnm_dispersiva = DataFrameWriter.create_arnm_table(adn_dispersiva, 'dispersiva')
 
-            # Representación gráfica del proceso de replicación en 3D
+            # Combinar los tres DataFrames de ARNm en uno solo
+            df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
+
+            df_codones = DataFrameWriter.create_codons_table(codones)
+            df_proteinas = DataFrameWriter.create_proteins_table(proteinas)
+            df_clasificacion = DataFrameWriter.create_classification_table(['Clasificación 1', 'Clasificación 2'])
+
+            # Representación gráfica del proceso de replicación en 3D para cada replicación
             VisualizationManager.representar_proceso_3d(adn_original, adn_conservativa)
             VisualizationManager.representar_proceso_3d(adn_original, adn_semiconservativa)
             VisualizationManager.representar_proceso_3d(adn_original, adn_dispersiva)
 
         except ValueError as e:
-            print(e)
+            print(f"Error de valor: {e}")
         except Exception as e:
             print(f"Error durante el procesamiento del archivo {fasta_file}: {e}")
 
