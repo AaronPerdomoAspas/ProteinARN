@@ -12,6 +12,7 @@ class DataFrameWriter:
             'nombre': ['Organismo Simulado'],
             'tipo': ['Eucariota']
         }
+
         df_organismos = pd.DataFrame(data_organismos)
         return df_organismos
 
@@ -26,6 +27,7 @@ class DataFrameWriter:
             'id_organismo': [1],
             'metodo_replicacion': [metodo_replicacion],
         }
+
         df_arnm = pd.DataFrame(data_arnm)
         return df_arnm
 
@@ -40,6 +42,7 @@ class DataFrameWriter:
             'aminoacido': [f"Aminoacido_{i}" for i in range(1, len(codones) + 1)],
             'id_arnm': [1] * len(codones)
         }
+
         df_codones = pd.DataFrame(data_codones)
         return df_codones
 
@@ -54,6 +57,7 @@ class DataFrameWriter:
             'secuencia_aminoacidos': ['-'.join(proteinas)],
             'id_arnm': [1]
         }
+
         df_proteinas = pd.DataFrame(data_proteinas)
         return df_proteinas
 
@@ -67,5 +71,6 @@ class DataFrameWriter:
             'nombre_clasificacion': clasificaciones,
             'id_proteina': [1] * len(clasificaciones)
         }
+
         df_clasificacion = pd.DataFrame(data_clasificacion)
         return df_clasificacion

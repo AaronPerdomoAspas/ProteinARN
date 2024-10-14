@@ -22,10 +22,10 @@ def main():
             adn_original, adn_conservativa, adn_semiconservativa, adn_dispersiva = ReplicationManager.perform_all_replications(
                 fasta_file)
 
-            # Transformar el ADN replicado en codones y proteínas usando la replicación conservativa como base
+            # Transformar el ADN replicado en codones y proteínas (usando la replicación conservativa como base)
             codones, proteinas = TransformManager.transform_adn(adn_conservativa)
 
-            # Crear los dataframes de cada tabla
+            # Crear los dataframes
             df_organismos = DataFrameWriter.create_organisms_table()
             df_arnm_conservativa = DataFrameWriter.create_arnm_table(adn_conservativa, 'conservativa')
             df_arnm_semiconservativa = DataFrameWriter.create_arnm_table(adn_semiconservativa, 'semiconservativa')
