@@ -30,13 +30,12 @@ def main():
             df_arnm_conservativa = DataFrameWriter.create_arnm_table(adn_conservativa, 'conservativa')
             df_arnm_semiconservativa = DataFrameWriter.create_arnm_table(adn_semiconservativa, 'semiconservativa')
             df_arnm_dispersiva = DataFrameWriter.create_arnm_table(adn_dispersiva, 'dispersiva')
-
-            # Combinar los tres DataFrames de ARNm en uno solo
-            df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
-
             df_codones = DataFrameWriter.create_codons_table(codones)
             df_proteinas = DataFrameWriter.create_proteins_table(proteinas)
             df_clasificacion = DataFrameWriter.create_classification_table(['Clasificación 1', 'Clasificación 2'])
+
+            # Combinar los tres DataFrames de ARNm en uno solo
+            df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
 
             # Representación gráfica del proceso de replicación en 3D para cada replicación
             VisualizationManager.representar_proceso_3d(adn_original, adn_conservativa)

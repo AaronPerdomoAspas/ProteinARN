@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class DataFrameWriter:
     @staticmethod
     def create_organisms_table():
