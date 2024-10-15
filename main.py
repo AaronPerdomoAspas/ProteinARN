@@ -62,8 +62,8 @@ def main() -> None:
             VisualizationManager.representar_proceso_3d(adn_original, adn_semiconservativa)
             VisualizationManager.representar_proceso_3d(adn_original, adn_dispersiva)
 
-        except Exception as e:
-            print(e)
+        except Exception as error:
+            print(error)
 
 
 if __name__ == "__main__":
