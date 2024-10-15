@@ -13,17 +13,13 @@ from api_connection_download.validator.SequenceValidator import SequenceValidato
 
 class MainOrchestrator:
     def __init__(self, config: json):
-        # Configuración del correo electrónico
         self.connection = NCBIConnection(config["email"]["address"])
 
-        # Configuración de búsqueda de datos
         self.id_fetcher = IdFetcher(config)
 
-        # Configuración de descarga
         self.single_fasta_downloader = SingleFastaDownloader(config["download"])
         self.downloader = FastaDownloader(self.single_fasta_downloader)
 
-        # Configuración de validación
         self.validators = [
             FormatValidator(),
             SequenceValidator(),

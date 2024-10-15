@@ -1,10 +1,15 @@
+from pathlib import Path
+
 from Bio import SeqIO
 
 class FileManager:
     @staticmethod
     def get_fasta_files(directory):
         """Obtiene una lista de todos los archivos FASTA en el directorio dado."""
-        return list(directory.glob("*.fasta"))
+        directory = Path(directory)
+        print(type(directory))
+        return [f for f in directory.iterdir() if f.is_file() and f.suffix == '.fasta']
+
 
     @staticmethod
     def read_fasta(fasta_file):
