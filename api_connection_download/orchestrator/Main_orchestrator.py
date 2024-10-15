@@ -1,14 +1,14 @@
 import json
 from typing import List, Optional
 
-from conections.Connection import NCBIConnection
-from downloader.FastaDownloader import FastaDownloader
-from downloader.IdFetcher import IdFetcher
-from downloader.SingleFastaDownloader import SingleFastaDownloader
-from utils.FilePathHelper import FilePathHelper
-from validator.FormatValidator import FormatValidator
-from validator.NonEmptyValidator import NonEmptyValidator
-from validator.SequenceValidator import SequenceValidator
+from api_connection_download.conections.Connection import NCBIConnection
+from api_connection_download.downloader.FastaDownloader import FastaDownloader
+from api_connection_download.downloader.IdFetcher import IdFetcher
+from api_connection_download.downloader.SingleFastaDownloader import SingleFastaDownloader
+from api_connection_download.utils.FilePathHelper import FilePathHelper
+from api_connection_download.validator.FormatValidator import FormatValidator
+from api_connection_download.validator.NonEmptyValidator import NonEmptyValidator
+from api_connection_download.validator.SequenceValidator import SequenceValidator
 
 
 class MainOrchestrator:

@@ -1,7 +1,7 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 
-from utils.FilePathHelper import FilePathHelper
+from api_connection_download.utils.FilePathHelper import FilePathHelper
 
 
 class SequenceValidator:

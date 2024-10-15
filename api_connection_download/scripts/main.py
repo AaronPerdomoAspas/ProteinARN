@@ -1,5 +1,5 @@
-from config.Config import Config
-from orchestrator.Main_orchestrator import MainOrchestrator
+from api_connection_download.config.Config import Config
+from api_connection_download.orchestrator.Main_orchestrator import MainOrchestrator
 
 
 def main() -> None:
