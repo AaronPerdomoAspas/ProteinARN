@@ -47,8 +47,8 @@ def main() -> None:
             # Combinar los tres DataFrames de ARNm en uno solo
             df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
             df_arnm['id_arnm'] = range(1, len(df_arnm) + 1)
-            conn, cursor = connection()
 
+            conn, cursor = connection()
             crear_tablas(conn, cursor)
             insert_data(df_organismos, "organismos", organismo)
             insert_data(df_arnm, "arnm", arm)
