@@ -19,8 +19,7 @@ def main() -> None:
     count = Config.get('data').get('count')
     orchestrator.execute(count=count)
 
-    fasta_directory = Path(__file__).resolve().parent.parent / "api_connection_download" / "download_fasta"
-
+    fasta_directory = Path(__file__).resolve().parent.parent / "BIO_practica_aula" / "api_connection_download" / "download_fasta"
     # Obtener los archivos FASTA disponibles
     fasta_files = FileManager.get_fasta_files(fasta_directory)
 
@@ -47,7 +46,7 @@ def main() -> None:
 
             # Combinar los tres DataFrames de ARNm en uno solo
             df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
-
+            df_arnm['id_arnm'] = range(1, len(df_arnm) + 1)
             conn, cursor = connection()
 
             crear_tablas(conn, cursor)
