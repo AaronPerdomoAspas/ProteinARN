@@ -45,6 +45,7 @@ class ReplicationProcessor:
         df_clasificacion = DataFrameWriter.create_classification_table(['Clasificación 1', 'Clasificación 2'])
 
         df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
+        df_arnm['id_arnm'] = range(1, len(df_arnm) + 1)
 
         return df_organismos, df_arnm, df_codones, df_proteinas, df_clasificacion
 

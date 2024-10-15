@@ -39,6 +39,7 @@ def main():
 
             # Combinar los tres DataFrames de ARNm en uno solo
             df_arnm = pd.concat([df_arnm_conservativa, df_arnm_semiconservativa, df_arnm_dispersiva], ignore_index=True)
+            df_arnm['id_arnm'] = range(1, len(df_arnm) + 1)
 
             # Representación gráfica del proceso de replicación en 3D para cada replicación
             VisualizationManager.representar_proceso_3d(adn_original, adn_conservativa)
