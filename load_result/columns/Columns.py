@@ -10,13 +10,13 @@ arm = {
   "id_organismo": "id_organismo",
   "metodo_replicacion": "metodo_replicacion"
 }
-codones = {
+codones_col = {
   "id_codon": "id_codon",
   "secuencia_codon": "secuencia_codon",
   "aminoacido": "aminoacido",
   "id_arnm": "id_arnm"
 }
-proteinas = {
+proteinas_col = {
   "id_proteina": "id_proteina",
   "nombre": "nombre",
   "secuencia_aminoacidos": "secuencia_aminoacidos",

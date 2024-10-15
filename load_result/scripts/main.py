@@ -6,9 +6,7 @@ from load_result.load.Connection import connection
 
 if __name__ == '__main__':
     conn, cursor = connection()
-    # Crear un DataFrame ficticio con todas las columnas de las tablas
 
-    # Crear el DataFrame
     crear_tablas(conn, cursor)
     insert_data(df_organismo, "organismos", organismo)
     insert_data(df_arm, "arnm", arm)

@@ -1,9 +1,12 @@
-from manager.FileManager import FileManager
-from manager.ReplicationManager import ReplicationManager
-from manager.TransformManager import TransformManager
-from manager.VisualizationManager import VisualizationManager
-from writer.DataframeWriter import *
+import pandas as pd
+from adn_replication.manager.FileManager import FileManager
+from adn_replication.manager.ReplicationManager import ReplicationManager
+from adn_replication.manager.TransformManager import TransformManager
+from adn_replication.manager.VisualizationManager import VisualizationManager
+from adn_replication.writer.DataframeWriter import *
 from pathlib import Path
+
+from adn_replication.writer.DataframeWriter import DataFrameWriter
 
 
 def main():
